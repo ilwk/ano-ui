@@ -1,12 +1,14 @@
-import type { Preset } from 'unocss'
-import type { Theme } from '@unocss/preset-mini'
+import { definePreset, type PresetFactory } from 'unocss'
 import { rules } from './rules'
 import { shortcuts } from './shortcuts'
 import { theme } from './theme'
 
 export const colors = Object.keys(theme.colors!)
 
-export function presetAno(): Preset<Theme> {
+interface PresetOptions {
+}
+
+export const presetAno: PresetFactory<object, PresetOptions> = definePreset(() => {
   return {
     name: '@ano-ui/preset',
     theme,
@@ -21,4 +23,4 @@ export function presetAno(): Preset<Theme> {
       ...Object.keys(shortcuts),
     ],
   }
-}
+})

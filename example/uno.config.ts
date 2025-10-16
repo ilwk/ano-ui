@@ -1,4 +1,6 @@
 import { presetUni } from '@uni-helper/unocss-preset-uni'
+import { presetAno } from 'ano-ui'
+
 import {
   defineConfig,
   presetIcons,
@@ -21,6 +23,7 @@ export default defineConfig({
       //   carbon: () => import('@iconify-json/carbon/icons.json').then(i => i.default),
       // },
     }),
+    presetAno(),
   ],
   transformers: [transformerDirectives(), transformerVariantGroup()],
 })

@@ -4,7 +4,7 @@ import { parseColor } from '@unocss/preset-mini'
 
 export const rules = [
   [/^a-(.*)$/, ([, body]: string[], { theme }: RuleContext<Theme>) => {
-    const color = parseColor(body, theme)
+    const color = parseColor(body || '', theme)
     if (color?.cssColor?.type === 'rgb' && color.cssColor.components) {
       return {
         '--ano-c-context': `${color.cssColor.components.join(' ')}`,
