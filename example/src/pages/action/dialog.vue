@@ -1,6 +1,10 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import type { DialogInst, DialogOptions, ToastInst, ToastOptions } from 'ano-ui'
+import { ref } from 'vue'
+
+definePage({
+  navigationBarTitleText: 'Dialog 弹出框',
+})
 
 const toast = ref<ToastInst>()
 
@@ -42,8 +46,3 @@ function handleCancel() {
     </div>
   </UBasePage>
 </template>
-
-<route lang="yaml">
-style:
-  navigationBarTitleText: Dialog 弹出框
-</route>

@@ -1,4 +1,8 @@
 <script setup lang="ts">
+definePage({
+  navigationBarTitleText: 'Avatar 头像',
+})
+
 const image = 'https://pic2.imgdb.cn/item/644bf4470d2dde5777abf840.webp'
 const options = ref([
   { src: image },
@@ -63,8 +67,3 @@ const options = ref([
     </div>
   </UBasePage>
 </template>
-
-<route lang="yaml">
-style:
-  navigationBarTitleText: Avatar 头像
-</route>

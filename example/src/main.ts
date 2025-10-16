@@ -1,16 +1,12 @@
 import { createSSRApp } from 'vue'
 import App from './App.vue'
-
+import { pinia } from './composables/useAppStore'
 import 'uno.css'
-
-import { setupPinia } from '~/modules/pinia'
 
 export function createApp() {
   const app = createSSRApp(App)
-
-  // Configure store
-  // https://pinia.vuejs.org/
-  setupPinia(app)
-
-  return { app }
+  app.use(pinia)
+  return {
+    app,
+  }
 }

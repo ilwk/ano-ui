@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+definePage({
+  navigationBarTitleText: 'Field 输入框',
+})
 
 const pwd = ref('')
 
@@ -59,8 +61,3 @@ const wordLimitText = ref('abc')
     </ACellGroup>
   </UBasePage>
 </template>
-
-<route lang="yaml">
-style:
-  navigationBarTitleText: Field 输入框
-</route>

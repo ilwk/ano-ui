@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+definePage({
+  navigationBarTitleText: 'Transition 动画',
+})
+
 const showValue = ref(false)
 const transitionName = ref('')
 async function show(name: string) {
@@ -26,7 +30,7 @@ function log(msg: string) {
       @before-enter="log('before-enter')" @enter="log('enter')" @after-enter="log('after-enter')"
       @before-leave="log('before-leave')" @leave="log('leave')" @after-leave="log('after-leave')"
     >
-      <div class="h-full flex items-center justify-center text-white w-full" @click="showValue = false">
+      <div class="h-full w-full flex items-center justify-center text-white" @click="showValue = false">
         内容
       </div>
     </ATransition>
@@ -48,8 +52,3 @@ function log(msg: string) {
     </ACellGroup>
   </UBasePage>
 </template>
-
-<route lang="yaml">
-style:
-  navigationBarTitleText: Transition 动画
-</route>

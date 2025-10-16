@@ -1,4 +1,8 @@
 <script setup lang="ts">
+definePage({
+  navigationBarTitleText: 'Button 按钮',
+})
+
 function getInfo() {
   uni.getUserInfo({
     success: (res) => {
@@ -105,15 +109,10 @@ function getInfo() {
         背景渐变
       </AButton>
     </div>
-    <div px-4 mt-2>
+    <div mt-2 px-4>
       <AButton type="danger" block>
         块级元素
       </AButton>
     </div>
   </UBasePage>
 </template>
-
-<route lang="yaml">
-style:
-  navigationBarTitleText: Button 按钮
-</route>

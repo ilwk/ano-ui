@@ -3,100 +3,82 @@ name: Check
 on:
   push:
     branches:
-      - main
+    - main
 
   pull_request:
     branches:
-      - main
+    - main
 
 jobs:
   lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8.3.0
-
-      - name: Set node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16.x
-          cache: pnpm
-          registry-url: 'https://registry.npmjs.org'
-
-      - name: Install Dependencies
-        run: pnpm i
-
-      - name: PNPM build
-        run: pnpm run build
-
-      - name: Lint
-        run: pnpm run lint
-
-  typecheck:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8.3.0
-
-      - name: Set node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16.x
-          cache: pnpm
-          registry-url: 'https://registry.npmjs.org'
-
-      - name: Install Dependencies
-        run: pnpm i
-
-      - name: PNPM build
-        run: pnpm run build
-
-      - name: TypeCheck
-        run: pnpm run typecheck
-
-  build:
-    runs-on: ${{ matrix.os }}
-    timeout-minutes: 10
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
-        build_cmd: ['build:h5', 'build:mp-weixin', 'build:app']
+        node_version: [ 18.x, 20.x, 22.x ]
+        os: [ ubuntu-latest, windows-latest, macos-latest ]
       fail-fast: false
 
+    runs-on: ${{ matrix.os }}
+
+    timeout-minutes: 10
+
     steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+    - run: |
+        git config --global core.autocrlf false
+        git config --global core.eol lf
+    - uses: actions/checkout@v4
+    - uses: pnpm/action-setup@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node_version }}
+        cache: pnpm
+    - run: pnpm i
+    - run: pnpm run lint
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8.3.0
+  typecheck:
+    strategy:
+      matrix:
+        node_version: [ 18.x, 20.x, 22.x ]
+        os: [ ubuntu-latest, windows-latest, macos-latest ]
+      fail-fast: false
 
-      - name: Set node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16.x
-          cache: pnpm
-          registry-url: 'https://registry.npmjs.org'
+    runs-on: ${{ matrix.os }}
 
-      - name: Install Dependencies
-        run: pnpm i
+    timeout-minutes: 10
 
-      - name: PNPM build
-        run: pnpm run build
+    steps:
+    - run: |
+        git config --global core.autocrlf false
+        git config --global core.eol lf
+    - uses: actions/checkout@v4
+    - uses: pnpm/action-setup@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node_version }}
+        cache: pnpm
+    - run: pnpm i
+    - run: pnpm run type-check
 
-      - name: Build
-        run: pnpm run ${{ matrix.build_cmd }}
+  build:
+    strategy:
+      matrix:
+        node_version: [ 18.x, 20.x, 22.x ]
+        os: [ ubuntu-latest, windows-latest, macos-latest ]
+        build_cmd: [ build, build wx, build app ]
+      fail-fast: false
+
+    runs-on: ${{ matrix.os }}
+
+    timeout-minutes: 10
+
+    steps:
+    - run: |
+        git config --global core.autocrlf false
+        git config --global core.eol lf
+    - uses: actions/checkout@v4
+    - uses: pnpm/action-setup@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node_version }}
+        cache: pnpm
+    - run: pnpm i
+    - run: pnpm run ${{ matrix.build_cmd }}

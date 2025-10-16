@@ -1,17 +1,21 @@
-// pages.config.ts
 import { defineUniPages } from '@uni-helper/vite-plugin-uni-pages'
 
 export default defineUniPages({
-  // You can also define pages fields, which have the highest priority.
   pages: [],
   globalStyle: {
-    navigationBarBackgroundColor: '@navBgColor',
-    navigationBarTextStyle: '@navTxtStyle',
-    navigationBarTitleText: 'Ano UI',
     backgroundColor: '@bgColor',
-    backgroundTextStyle: '@bgTxtStyle',
-    backgroundColorTop: '@bgColorTop',
     backgroundColorBottom: '@bgColorBottom',
+    backgroundColorTop: '@bgColorTop',
+    backgroundTextStyle: '@bgTxtStyle',
+    navigationBarBackgroundColor: '#000000',
+    navigationBarTextStyle: '@navTxtStyle',
+    navigationBarTitleText: 'Vitesse-Uni',
     navigationStyle: 'custom',
   },
+  // tabBar: {
+  //   backgroundColor: "@tabBgColor",
+  //   borderStyle: "@tabBorderStyle",
+  //   color: "@tabFontColor",
+  //   selectedColor: "@tabSelectedColor",
+  // },
 })

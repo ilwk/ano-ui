@@ -1,4 +1,8 @@
 <script setup lang="ts">
+definePage({
+  navigationBarTitleText: 'Ano UI',
+})
+
 function goBasic(path: string) {
   uni.navigateTo({
     url: `/pages/basic/${path}`,
@@ -32,7 +36,7 @@ function goNavigation(path: string) {
 
 <template>
   <UBasePage :show="false">
-    <div class="text-center p4 pt-12" flex="~ col gap1">
+    <div class="p4 pt-12 text-center" flex="~ col gap1">
       <div class="text-xl">
         Ano UI
       </div>
@@ -92,8 +96,3 @@ function goNavigation(path: string) {
     </ACellGroup>
   </UBasePage>
 </template>
-
-<route type="home" lang="yaml">
-style:
-  navigationBarTitleText: Ano UI
-</route>

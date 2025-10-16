@@ -1,4 +1,6 @@
-import { pinia } from '~/modules/pinia'
+import { createPinia, defineStore } from 'pinia'
+
+export const pinia = createPinia()
 
 interface MenuButtonBoundingClientRect {
   width: number

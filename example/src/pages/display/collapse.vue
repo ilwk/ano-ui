@@ -1,4 +1,8 @@
 <script setup lang="ts">
+definePage({
+  navigationBarTitleText: 'Collapse 折叠面板',
+})
+
 const activeNames = ref(['1'])
 </script>
 
@@ -67,8 +71,3 @@ const activeNames = ref(['1'])
     </ACollapse>
   </UBasePage>
 </template>
-
-<route lang="yaml">
-style:
-  navigationBarTitleText: Collapse 折叠面板
-</route>

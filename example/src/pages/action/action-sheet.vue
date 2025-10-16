@@ -1,6 +1,9 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import type { ActionSheetAction, ToastInst } from 'ano-ui'
+
+definePage({
+  navigationBarTitleText: 'ActionSheet 动作面板',
+})
 
 const toast = ref<ToastInst>()
 
@@ -34,8 +37,3 @@ function onCancel() {
     </div>
   </UBasePage>
 </template>
-
-<route lang="yaml">
-style:
-  navigationBarTitleText: ActionSheet 动作面板
-</route>

@@ -1,4 +1,8 @@
 <script setup lang="ts">
+definePage({
+  navigationBarTitleText: 'Switch 开关',
+})
+
 const checked = ref(false)
 const checked2 = ref(0)
 const checked3 = ref('y')
@@ -58,8 +62,3 @@ const disChecked = ref(true)
     </div>
   </UBasePage>
 </template>
-
-<route lang="yaml">
-style:
-  navigationBarTitleText: Switch 开关
-</route>

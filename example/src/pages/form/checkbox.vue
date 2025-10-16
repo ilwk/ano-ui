@@ -1,4 +1,8 @@
 <script setup lang="ts">
+definePage({
+  navigationBarTitleText: 'Checkbox 复选框',
+})
+
 const checked = ref(false)
 const statusChecked2 = ref(true)
 const checked2 = ref(true)
@@ -115,8 +119,3 @@ function toggle(index: any) {
     </ACheckboxGroup>
   </UBasePage>
 </template>
-
-<route lang="yaml">
-style:
-  navigationBarTitleText: Checkbox 复选框
-</route>

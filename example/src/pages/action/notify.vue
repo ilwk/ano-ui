@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import type { NotifyInst, NotifyOptions } from 'ano-ui'
 
+definePage({
+  navigationBarTitleText: 'Notify 消息通知',
+})
+
 const notify = ref<NotifyInst>()
 
 function showNotify(options: NotifyOptions) {
@@ -88,8 +92,3 @@ const topStyle = computed(() => {
     </div>
   </UBasePage>
 </template>
-
-<route lang="yaml">
-style:
-  navigationBarTitleText: Notify 消息通知
-</route>

@@ -1,4 +1,7 @@
 <script setup lang="ts">
+definePage({
+  navigationBarTitleText: 'Cell 单元格',
+})
 </script>
 
 <template>
@@ -41,8 +44,3 @@
     </ACellGroup>
   </UBasePage>
 </template>
-
-<route lang="yaml">
-style:
-  navigationBarTitleText: Cell 单元格
-</route>

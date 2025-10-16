@@ -1,4 +1,8 @@
 <script setup lang="ts">
+definePage({
+  navigationBarTitleText: 'Radio 单选框',
+})
+
 type RadioGroupValue = 'a' | 'b' | 'c' | 'd' | 'e'
 const groupChecked1 = ref<RadioGroupValue>('a')
 const groupChecked2 = ref<RadioGroupValue>('a')
@@ -86,8 +90,3 @@ const groupChecked4 = ref<RadioGroupValue>('a')
     </ARadioGroup>
   </UBasePage>
 </template>
-
-<route lang="yaml">
-style:
-  navigationBarTitleText: Radio 单选框
-</route>

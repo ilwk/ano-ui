@@ -1,6 +1,10 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import type { PositionType } from 'ano-ui'
+import { ref } from 'vue'
+
+definePage({
+  navigationBarTitleText: 'Popup 弹出层',
+})
 
 const showValue = ref(false)
 const position = ref<PositionType>('center')
@@ -28,7 +32,7 @@ const topStyle = computed(() => {
       v-model:show="showValue" :position="position" :duration="300"
       :custom-style="[position === 'top' || position === 'left' || position === 'right' ? topStyle : '']"
     >
-      <div class="flex items-center justify-center text-white h-100px w-200px bg-primary">
+      <div class="bg-primary h-100px w-200px flex items-center justify-center text-white">
         内容
       </div>
     </APopup>
@@ -50,8 +54,3 @@ const topStyle = computed(() => {
     </ACellGroup>
   </UBasePage>
 </template>
-
-<route lang="yaml">
-style:
-  navigationBarTitleText: Popup 弹出层
-</route>

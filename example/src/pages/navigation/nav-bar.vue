@@ -1,4 +1,8 @@
 <script setup lang="ts">
+definePage({
+  navigationBarTitleText: 'NavBar 导航栏',
+})
+
 function onClickLeft() {
   const pages = getCurrentPages()
   if (pages.length > 1) {
@@ -61,9 +65,3 @@ function onClickRight() {
     </ANavBar>
   </UBasePage>
 </template>
-
-<route lang="yaml">
-style:
-  navigationBarTitleText: NavBar 导航栏
-  navigationStyle: custom
-</route>
